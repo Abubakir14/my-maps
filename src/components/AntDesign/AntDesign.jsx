@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, Tag, Space, Button } from 'antd';
 import { useDispatch } from "react-redux";
 import { selectRoute } from '../../reducers/Reducers';
+import Map from '../Leaflet/Leaflet';
 
 const columns = [
     {
@@ -75,8 +76,12 @@ const ActionsButton = ({ record }) => {
   };
 
 const RoutesTable = () => {
+  return <div>
+  <Table columns={columns} dataSource={data} />
 
-  return <Table columns={columns} dataSource={data}/>;
+  {/* Один раз инициализируем компонент Map */}
+  <Map />
+</div>
 };
 
 export default RoutesTable;
