@@ -2,7 +2,6 @@ import React from 'react';
 import { Table, Tag, Space, Button } from 'antd';
 import { useDispatch } from "react-redux";
 import { selectRoute } from '../../reducers/Reducers';
-import Map from '../Leaflet/Leaflet';
 
 const columns = [
     {
@@ -60,6 +59,7 @@ const data = [
 
   
 const ActionsButton = ({ record }) => {
+    console.log(record);
     const dispatch = useDispatch();
   
     // Обработчик события для выбора маршрута
@@ -76,12 +76,7 @@ const ActionsButton = ({ record }) => {
   };
 
 const RoutesTable = () => {
-  return <div>
-  <Table columns={columns} dataSource={data} />
-
-  {/* Один раз инициализируем компонент Map */}
-  <Map />
-</div>
+  return <Table columns={columns} dataSource={data} />
 };
 
 export default RoutesTable;
